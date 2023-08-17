@@ -1,0 +1,246 @@
+// @import url(./_variable.scss);
+@use './variable' as variable;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: variable.$Roboto-font;
+}
+
+#root{
+    background-color: variable.$dark-slate-grey;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    p{
+        font-size: variable.$Font-size-paragraph;
+    }
+
+    .wrapper{
+        background-color: variable.$white;
+        width: min(700px, 100%);
+        min-height: 70vh;
+        border-radius: 20px;
+        display: flex;
+        overflow: hidden;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px 19px;
+        gap: 20px;
+
+        .contents{
+            // background-color: pink;
+            width: 50%;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 20px;
+
+            .texts{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h1{
+                    color: variable.$dark-slate-grey;
+                    font-size: variable.$Font-size-heading;
+                    margin-bottom: 10px;
+                }
+
+                p{
+                    color: variable.$dark-slate-grey;
+                    font-weight: variable.$Font-weight-400;
+                    font-size: variable.$Font-size-paragraph;
+                    margin-bottom: 10px;
+                }
+
+                .lists{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .list{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        p{
+                            margin-bottom: 0;
+                        }
+    
+                        img{
+                            width: 18px;
+                        }
+                    }
+                }
+            }
+
+            .emailSection{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .emaildiv{
+
+                    .emailtexts{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        h5{
+                            margin-bottom: 5px;
+                            color: variable.$dark-slate-grey;
+                        }
+
+                        #validemailtext{
+                            display: none;
+                            color: red;
+                        }
+                    }
+
+                    input{
+                        width: 96%;
+                        height: 45px;
+                        border-radius: 8px;
+                        border: 1px solid rgba(128, 128, 128, 0.493);
+                        padding-left: 10px;
+                        transition: 0.5s;
+                    }
+                    input:focus-visible{
+                        outline: none;
+                    }
+                    input:hover{
+                        border-color: variable.$dark-slate-grey;
+                    }
+
+                }
+
+                button{
+                    width: 100%;
+                    height: 45px;
+                    border-radius: 8px;
+                    border: none;
+                    background-color: variable.$dark-slate-grey;
+                    color: white;
+                    cursor: pointer;
+                }
+                button:hover{
+                    background: linear-gradient(to right, #fd5473 10%, hsl(4, 100%, 67%));
+                    box-shadow: 0px 11px 17px 0px #fe5c5c63;
+                }
+            }
+        }
+
+        .big-img{
+            height: inherit;
+            width: 300px;
+        }
+        .mobile-img{
+            display: none;
+        }
+    }
+
+    /* Thank You Section */
+
+    .thankyousection{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        color: variable.$dark-slate-grey;
+
+        .thankyouwraper{
+            display: grid;
+            place-items: center;
+            width: min(400px, 90%);
+            background-color: white;
+            border-radius: 30px;
+            height: 60vh;
+
+            .thankyou{
+                width: 80%;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .thankyoutext{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    img{
+                        width: 50px;
+                    }
+
+                    h1{
+                        font-size: variable.$Font-size-heading;
+                    }
+                }
+
+                button{
+                    width: 100%;
+                    border: none;
+                    color: white;
+                    background-color: variable.$dark-slate-grey;
+                    height: 40px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                }
+                button:hover{
+                    background: linear-gradient(102deg, #fd5473 10%, hsl(4, 100%, 67%));
+                    box-shadow: 0px 11px 17px 0px #fe5c5c63;
+                }
+            }
+            
+        }
+    }
+
+}
+
+    
+
+@media (max-width: 750px) {
+    #root{
+
+        .wrapper{
+            flex-direction: column-reverse;
+            padding: 0;
+            padding-bottom: 120px;
+            width: 100%;
+
+            .contents{
+                width: min(500px, 90%);
+            }
+            
+            .big-img{
+                display: none;
+            }
+            .mobile-img{
+                display: block;
+                width: 100%;
+            }
+        }
+    
+        /* Thank You Section */
+    
+        .thankyousection{
+            .thankyouwraper{
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+
+                .thankyou{
+                    width: min(400px, 90%);
+                    justify-content: space-around;
+                }
+            }
+        }
+    }
+}
